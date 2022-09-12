@@ -4,14 +4,15 @@ import WeatherDescription from "./WeatherDescription";
 import ForecastDaily from "./ForecastDaily";
 import ForecastHourly from "./ForecastHourly";
 
+/**  "id": 3492908,
+   "name": "Santo Domingo", */
+
 function App() {
   return (
     <div className="App">
-      <div className="container">
-        <WeatherDescription />
-      </div>
-      <div className="container"></div>
-      <div className="container"></div>
+      <WeatherDescription />
+      <ForecastHourly />
+      <ForecastDaily />
     </div>
   );
 }

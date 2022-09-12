@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./WeatherDescription.css";
 
 export default function WeatherDescription() {
   const [city, setCity] = useState(" ");
@@ -9,6 +10,7 @@ export default function WeatherDescription() {
   const [wind, setWind] = useState(" ");
   const [icon, setIcon] = useState(" ");
   const call = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d7b2fb74167b7413c4800d2bd61bddc1&&units=metric`;
+  /* https://pro.openweathermap.org/data/2.5/forecast/hourly?q=Lisbon&appid=d7b2fb74167b7413c4800d2bd61bddc1 */
 
   function setWeather() {
     axios.get(call).then(function (props) {
@@ -32,7 +34,7 @@ export default function WeatherDescription() {
   }
 
   return (
-    <div>
+    <div className="container">
       <div>
         <form onSubmit={searchCity}>
           <input type="text" placeholder="city" onChange={updateCity} />
