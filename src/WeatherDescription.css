@@ -1,11 +1,20 @@
+:root {
+    --main--blue: rgba(32, 32, 253, 1);
+    --main--green: rgba(0, 189, 53, 1);
+    --min--tomato: rgba(231, 51, 1, 1);
+    --main--choosen: var(--main--blue);
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-p {
+p,
+span {
     margin: 0;
     padding: 0;
+    width: fit-content;
 }
 
 .container {
@@ -17,12 +26,90 @@ p {
     width: fit-content;
     align-items: center;
     justify-content: center;
+    width: fit-content;
 }
 
 .col {
-    padding: 10px 20px;
+    background-color: var(--main--choosen);
+    border-radius: 5px;
+    margin: 5px;
 }
 
-img[src=" "] {
+img[src=""] {
     display: none;
+}
+
+.fluid_icon {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+form {
+    width: fit-content;
+}
+
+.btn,
+input {
+    background-color: var(--main--choosen);
+    color: inherit;
+    font-family: inherit;
+    padding: 5px 10px;
+    margin: 4px;
+    border: none;
+    border-radius: 5px;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+}
+
+.btn:focus,
+.btn:hover {
+    color: var(--main--choosen);
+    background-color: white;
+}
+
+input {
+    display: inline;
+    outline: none;
+    height: 15px;
+    line-height: 15px;
+}
+h1 {
+    word-wrap: nowrap;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+h6 {
+    text-align: center;
+}
+
+.box {
+    position: relative;
+    border-bottom: 1px solid white;
+}
+
+.cityClass {
+    position: absolute;
+    font-size: 4rem;
+    top: 10px;
+    right: 10px;
+}
+
+h2 {
+    position: absolute;
+    font-size: 2.8rem;
+    bottom: 50px;
+    right: 10px;
+}
+
+.vertical {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    writing-mode: vertical-lr;
 }

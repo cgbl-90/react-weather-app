@@ -2,8 +2,13 @@ html {
   font-family: 'Space Mono', monospace;
   display: grid;
   place-items: center;
+  color: white;
 }
 
 code {
   font-family: monospace;
+}
+
+p {
+  color: black;
 }

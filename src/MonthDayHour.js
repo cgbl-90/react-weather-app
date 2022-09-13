@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function MonthDayHour() {
   var dateObj = new Date();
   var month = dateObj.getUTCMonth();
