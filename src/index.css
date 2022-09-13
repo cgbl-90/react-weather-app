@@ -1,8 +1,7 @@
-body {
-  margin: 0;
-  font-family: monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  font-family: 'Space Mono', monospace;
+  display: grid;
+  place-items: center;
 }
 
 code {
