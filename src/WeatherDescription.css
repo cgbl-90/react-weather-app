@@ -119,3 +119,16 @@ h6 {
 .btn-right {
     float: right;
 }
+
+.show {
+    display: inline;
+    float: right;
+}
+
+.hide {
+    display: none;
+}
+
+.btn-group {
+    float: top;
+}

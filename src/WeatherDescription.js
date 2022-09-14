@@ -18,9 +18,9 @@ export default function WeatherDescription(defaultCity) {
   const lon = Navigator.lon;
   const call = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&&units=metric`;
   const geocall = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-  var fahrenheit = Number;
-  var celcius = Number;
-  let convert = true;
+  var [fahrenheit, setFahrenheit] = useState(0);
+  const [classCel, setclassCel] = useState("show");
+  const [classFar, setclassFar] = useState("hide");
 
   function setWeather() {
     axios.get(call).then(function (props) {
@@ -33,8 +33,7 @@ export default function WeatherDescription(defaultCity) {
         country: props.data.sys.country,
         id: props.data.id,
       });
-      fahrenheit = (props.data.main.temp * 9) / 5 + 32;
-      celcius = props.data.main.temp * 9;
+      setFahrenheit((props.data.main.temp * 9) / 5 + 32);
       console.log(fahrenheit);
     });
     setLastCity(city);
@@ -52,7 +51,7 @@ export default function WeatherDescription(defaultCity) {
         country: props.data.sys.country,
         id: props.data.id,
       });
-      fahrenheit = (props.data.main.temp * 9) / 5 + 32;
+      setFahrenheit((props.data.main.temp * 9) / 5 + 32);
       console.log(fahrenheit);
     });
   }
@@ -66,8 +65,16 @@ export default function WeatherDescription(defaultCity) {
     setWeather();
   }
 
-  function convertGrad(value) {
-    convert = value;
+  function convertCel(event) {
+    event.preventDefault();
+    setclassCel("show");
+    setclassFar("hide");
+  }
+
+  function convertFar(event) {
+    event.preventDefault();
+    setclassCel("hide");
+    setclassFar("show");
   }
 
   return (
@@ -86,25 +93,26 @@ export default function WeatherDescription(defaultCity) {
             alt="Weather today"
           />
           <span className="weatherSpan">
-            {convert === true ? (
-              <h2>{weatherData.temperature}</h2>
-            ) : (
-              <h2>{fahrenheit}</h2>
-            )}
-            <button
-              type="submit"
-              className="btn btn-right"
-              onClick={convertGrad(true)}
-            >
-              °C
-            </button>
-            <button
-              type="submit"
-              className="btn btn-right"
-              onClick={convertGrad(false)}
-            >
-              °F
-            </button>
+            <span>
+              <h2 className={classCel}>{weatherData.temperature}</h2>
+              <h2 className={classFar}>{fahrenheit}</h2>
+            </span>
+            <span className="btn-group">
+              <button
+                type="submit"
+                className="btn btn-right"
+                onClick={convertCel}
+              >
+                °C
+              </button>
+              <button
+                type="submit"
+                className="btn btn-right"
+                onClick={convertFar}
+              >
+                °F
+              </button>
+            </span>
           </span>
           <h3 className="vertical">{weatherData.description}</h3>
         </div>
