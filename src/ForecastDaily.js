@@ -7,52 +7,45 @@ import axios from "axios";
 */
 
 export default function ForecastDaily(id) {
+  /*
   const apiKey = "d7b2fb74167b7413c4800d2bd61bddc1";
   const dailycall = `http://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=${apiKey}`;
-  const [dailyWeatherData, setDailyWeatherData] = useState([]);
+  const [dailyWeatherData, setDailyWeatherData] = useState("");
+  const [reply, setReply] = useState("");
 
-  function setWeather() {
+  if (id !== undefined) {
+  
     axios.get(dailycall).then(function (props) {
       for (let i = 0; i < 14; i++) {
-        setDailyWeatherData([
-          {
+        setDailyWeatherData(
+          [{
             id: i,
+            dt: props.data.list[i].dt,
             temperature: props.data.list[i].main.temp,
             feelsLike: props.data.list[i].main.feels_like,
             description: props.data.list[i].weather[0].description,
-            icon: `https://openweathermap.org/img/wn/${props.data.list[i].weather[0].icon}@2x.png`,
-          },
-        ]);
+            icon: `./icons/${props.data.list[i].weather[0].icon}.png`,
+          }]
+        );
       }
-    });
+    }
+    
+    for (let i = 0; i < 14; i++) {
+      reply = reply + (
+        `<div className="card">
+          <h6>${dailyWeatherData[i].temperature}</h6>
+          <h4>${dailyWeatherData[i].temperature}</h4>
+          <h5>feels like ${dailyWeatherData[i].feelsLike}</h5>
+          <h5>${dailyWeatherData[i].description}</h5>
+          <img className="small_icon" src=${dailyWeatherData[i].icon}> </img>
+        </div>`
+      )
+    };
+    
+    return reply;
+  
   }
-
-  return (
-    <div className="col">
-      <h4> Monday </h4>
-      <span className="small_icon"> 🌧️ </span>
-      <h4> 26 </h4>
-      <h4> C </h4>
-      <h4> Monday </h4>
-      <span className="small_icon"> 🌧️ </span>
-      <h4> 26 </h4>
-      <h4> C </h4>
-      <h4> Monday </h4>
-      <span className="small_icon"> 🌧️ </span>
-      <h4> 26 </h4>
-      <h4> C </h4>
-      <h4> Monday </h4>
-      <span className="small_icon"> 🌧️ </span>
-      <h4> 26 </h4>
-      <h4> C </h4>
-      <h4> Monday </h4>
-      <span className="small_icon"> 🌧️ </span>
-      <h4> 26 </h4>
-      <h4> C </h4>
-      <h4> Monday </h4>
-      <span className="small_icon"> 🌧️ </span>
-      <h4> 26 </h4>
-      <h4> C </h4>
-    </div>
-  );
+  */
+  console.log(id);
+  return "LOL";
 }
