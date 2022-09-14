@@ -29,7 +29,7 @@ export default function ForecastDaily(id) {
 
   return (
     <div className="col">
-      <h4 > Monday </h4>
+      <h4> Monday </h4>
       <span className="small_icon"> 🌧️ </span>
       <h4> 26 </h4>
       <h4> C </h4>
