@@ -6,7 +6,7 @@ export default function Footer() {
       <a
         href="https://github.com/cgbl-90/react-weather-app"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         Open-source code
       </a>{" "}
@@ -14,7 +14,7 @@ export default function Footer() {
       <a
         href="https://www.linkedin.com/in/cgbl/"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         Carmen López
       </a>

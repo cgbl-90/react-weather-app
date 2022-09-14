@@ -1,7 +1,8 @@
+/*
 import React, { useState } from "react";
 import axios from "axios";
 
-/*  
+ 
   Request a new API key at https://openweathermap.org/  (Daily)
   Sample request: http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=d7b2fb74167b7413c4800d2bd61bddc1
 */
