@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "npmreact-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
 import WeatherDescription from "./WeatherDescription";
 import Footer from "./Footer";

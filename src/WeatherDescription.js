@@ -94,8 +94,16 @@ export default function WeatherDescription(defaultCity) {
           />
           <span className="weatherSpan">
             <span>
-              <h2 className={classCel}>{weatherData.temperature}</h2>
-              <h2 className={classFar}>{fahrenheit}</h2>
+              <h2 className={classCel}>
+                {weatherData.temperature !== undefined
+                  ? Math.round(weatherData.temperature)
+                  : " "}
+              </h2>
+              <h2 className={classFar}>
+                {weatherData.temperature !== undefined
+                  ? Math.round(fahrenheit)
+                  : " "}
+              </h2>
             </span>
             <span className="btn-group">
               <button

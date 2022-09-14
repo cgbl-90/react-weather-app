@@ -33,6 +33,26 @@ export default function ForecastDaily(id) {
       <span className="small_icon"> 🌧️ </span>
       <h4> 26 </h4>
       <h4> C </h4>
+      <h4> Monday </h4>
+      <span className="small_icon"> 🌧️ </span>
+      <h4> 26 </h4>
+      <h4> C </h4>
+      <h4> Monday </h4>
+      <span className="small_icon"> 🌧️ </span>
+      <h4> 26 </h4>
+      <h4> C </h4>
+      <h4> Monday </h4>
+      <span className="small_icon"> 🌧️ </span>
+      <h4> 26 </h4>
+      <h4> C </h4>
+      <h4> Monday </h4>
+      <span className="small_icon"> 🌧️ </span>
+      <h4> 26 </h4>
+      <h4> C </h4>
+      <h4> Monday </h4>
+      <span className="small_icon"> 🌧️ </span>
+      <h4> 26 </h4>
+      <h4> C </h4>
     </div>
   );
 }
