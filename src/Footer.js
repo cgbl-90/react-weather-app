@@ -2,8 +2,15 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <p>
-      Coded by{" "}
+    <h5>
+      <a
+        href="https://github.com/cgbl-90/react-weather-app"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Open-source code
+      </a>{" "}
+      by{" "}
       <a
         href="https://www.linkedin.com/in/cgbl/"
         target="_blank"
@@ -11,6 +18,6 @@ export default function Footer() {
       >
         Carmen López
       </a>
-    </p>
+    </h5>
   );
 }

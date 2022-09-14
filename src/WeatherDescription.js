@@ -18,6 +18,9 @@ export default function WeatherDescription(defaultCity) {
   const lon = Navigator.lon;
   const call = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&&units=metric`;
   const geocall = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+  var fahrenheit = Number;
+  var celcius = Number;
+  let convert = true;
 
   function setWeather() {
     axios.get(call).then(function (props) {
@@ -30,6 +33,9 @@ export default function WeatherDescription(defaultCity) {
         country: props.data.sys.country,
         id: props.data.id,
       });
+      fahrenheit = (props.data.main.temp * 9) / 5 + 32;
+      celcius = props.data.main.temp * 9;
+      console.log(fahrenheit);
     });
     setLastCity(city);
   }
@@ -46,6 +52,8 @@ export default function WeatherDescription(defaultCity) {
         country: props.data.sys.country,
         id: props.data.id,
       });
+      fahrenheit = (props.data.main.temp * 9) / 5 + 32;
+      console.log(fahrenheit);
     });
   }
 
@@ -58,31 +66,51 @@ export default function WeatherDescription(defaultCity) {
     setWeather();
   }
 
+  function convertGrad(value) {
+    convert = value;
+  }
+
   return (
     <div className="container">
       <div className="col">
         <h6>
           <MonthDayHour />
         </h6>
-
         <div className="box">
-          <h1 className="cityClass">{lastCity}</h1>
+          <span className="cityClass">
+            <h1>{lastCity}</h1>
+          </span>
           <img
             className="fluid_icon"
-            src={
-              weatherData.icon !== undefined
-                ? `https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`
-                : ""
-            }
+            src={require(`./icons/${weatherData.icon}.png`)}
             alt="Weather today"
           />
-          <h2>{weatherData.temperature}°</h2>
+          <span className="weatherSpan">
+            {convert === true ? (
+              <h2>{weatherData.temperature}</h2>
+            ) : (
+              <h2>{fahrenheit}</h2>
+            )}
+            <button
+              type="submit"
+              className="btn btn-right"
+              onClick={convertGrad(true)}
+            >
+              °C
+            </button>
+            <button
+              type="submit"
+              className="btn btn-right"
+              onClick={convertGrad(false)}
+            >
+              °F
+            </button>
+          </span>
           <h3 className="vertical">{weatherData.description}</h3>
-          <h6>
-            Humidity: {weatherData.humidity}%｜Wind speed: {weatherData.wind}m/s
-          </h6>
         </div>
-
+        <h6>
+          Humidity: {weatherData.humidity} — Wind speed: {weatherData.wind}m/s
+        </h6>
         <form>
           <input
             type="text"
@@ -90,10 +118,10 @@ export default function WeatherDescription(defaultCity) {
             onChange={updateCity}
           />
           <button type="submit" className="btn" onClick={searchCity}>
-            <span class="material-symbols-outlined">search</span>
+            <span className="material-symbols-outlined">search</span>
           </button>
           <button type="submit" className="btn" onClick={searchMyCity}>
-            <span class="material-symbols-outlined">location_on</span>
+            <span className="material-symbols-outlined">location_on</span>
           </button>
         </form>
       </div>
