@@ -10,7 +10,6 @@ export default function MonthDayHour(value) {
       : dateObj.getMinutes();
   var hour =
     dateObj.getHours() < 10 ? `0` + dateObj.getHours() : dateObj.getHours();
-  var day = dateObj.getDay();
   let months = [
     "January",
     "February",
