@@ -2,7 +2,7 @@ export default function MonthDayHour(value) {
   let timeStamp = value.value * 1000;
   var dateObj = timeStamp > 0 ? new Date(timeStamp) : new Date();
   var month = dateObj.getUTCMonth();
-  var day = dateObj.getUTCDate();
+  var day = dateObj.getDay();
   var year = dateObj.getUTCFullYear();
   var minutes =
     dateObj.getMinutes() < 10
@@ -36,5 +36,5 @@ export default function MonthDayHour(value) {
   if (timeStamp > 0) {
     return `${days[day]} ${hour}:${minutes}`;
   }
-  return `${months[month]} ${day}, ${year} ${hour}:${minutes}`;
+  return `${months[month]} ${days[day]}, ${year} ${hour}:${minutes}`;
 }
