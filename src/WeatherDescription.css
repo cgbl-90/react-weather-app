@@ -2,7 +2,7 @@
     --main--blue: rgba(32, 32, 253, 1);
     --main--green: rgba(0, 189, 53, 1);
     --min--tomato: rgba(231, 51, 1, 1);
-    --main--choosen: var(--main--green);
+    --main--choosen: var(--min--tomato);
 }
 
 h1,
@@ -85,7 +85,11 @@ input {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3rem;
+}
+
+h2 {
+    text-shadow: 0px 4px 4px rgb(177, 175, 175);
 }
 
 h3 {
@@ -104,9 +108,13 @@ h6 {
 
 .cityClass {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    float: right;
+    top: -10px;
+    text-shadow: 10px 10px 0px rgb(177, 175, 175);
+}
+
+.cityClass.shadow {
+    overflow: hidden;
+    word-break: break-all;
 }
 
 .weatherSpan {
@@ -121,4 +129,21 @@ h6 {
     bottom: 30px;
     left: 10px;
     writing-mode: vertical-lr;
+}
+
+.cards {
+    display: inline;
+    margin: 5px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.smallest {
+    font-size: 10px;
+    display: block;
 }

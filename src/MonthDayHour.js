@@ -1,8 +1,16 @@
-export default function MonthDayHour() {
-  var dateObj = new Date();
+export default function MonthDayHour(value) {
+  let timeStamp = value.value * 1000;
+  var dateObj = timeStamp > 0 ? new Date(timeStamp) : new Date();
   var month = dateObj.getUTCMonth();
   var day = dateObj.getUTCDate();
   var year = dateObj.getUTCFullYear();
+  var minutes =
+    dateObj.getMinutes() < 10
+      ? `0` + dateObj.getMinutes()
+      : dateObj.getMinutes();
+  var hour =
+    dateObj.getHours() < 10 ? `0` + dateObj.getHours() : dateObj.getHours();
+  var day = dateObj.getDay();
   let months = [
     "January",
     "February",
@@ -17,5 +25,17 @@ export default function MonthDayHour() {
     "November",
     "December",
   ];
-  return `${months[month]} ${day}, ${year}`;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  if (timeStamp > 0) {
+    return `${days[day]} ${hour}:${minutes}`;
+  }
+  return `${months[month]} ${day}, ${year} ${hour}:${minutes}`;
 }
